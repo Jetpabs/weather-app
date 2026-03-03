@@ -12,25 +12,40 @@
         <h1>Simple Weather App</h1>
         <h2>Welcome to the Weather App! Here you can check the current weather conditions in various cities.</h2>
 
-        <input type="text" id="city-input" placeholder="Enter city name">
+        <div id="input-container">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="fetch-button">Search</button>
+        </div>
 
-        <div class="weather-container">
-            <article class="weather-output">
-                <h3 id="weather-past">Past Weather</h3>
-                <p class="weather-description">Weather description will appear here.</p>
-                <p class="temperature">Temperature will appear here.</p>
+        <div id="weather-container" class="hidden">
+            <article class="weather-output" id="weather-past">
+                <h3 class="loc"></h3>
+                <p class="date"></p>
+                <p class="temp"></p>
+                <p class="icon"></p>
+                <p class="cond"></p>
+                <p class="wind"></p>
+                <p class="precip"></p>
             </article>
 
-            <article class="weather-output">
-                <h3 id="weather-present">Present Weather</h3>
-                <p class="weather-description">Weather description will appear here.</p>
-                <p class="temperature">Temperature will appear here.</p>
+            <article class="weather-output" id="weather-present">
+                <h3 class="loc"></h3>
+                <p class="date"></p>
+                <p class="temp"></p>
+                <p class="icon"></p>
+                <p class="cond"></p>
+                <p class="wind"></p>
+                <p class="precip"></p>
             </article>
 
-            <article class="weather-output">
-                <h3 id="weather-future">Future Weather</h3>
-                <p class="weather-description">Weather description will appear here.</p>
-                <p class="temperature">Temperature will appear here.</p>
+            <article class="weather-output" id="weather-future">
+                <h3 class="loc"></h3>
+                <p class="date"></p>
+                <p class="temp"></p>
+                <p class="icon"></p>
+                <p class="cond"></p>
+                <p class="wind"></p>
+                <p class="precip"></p>
             </article>
         </div>
     </main>
