@@ -6,23 +6,26 @@
     <title>Weather App</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <main>
-        <h1>Simple Weather App</h1>
-        <h2>Welcome to the Weather App! Here you can check the current weather conditions in various cities.</h2>
+        <div id="main-container">
+            <h1>Simple Weather App</h1>
+            <h2>Welcome to the Weather App! Here you can check the current weather conditions in various cities.</h2>
 
-        <div id="input-container">
-            <input type="text" id="city-input" placeholder="Enter city name">
-            <button id="fetch-button">Search</button>
+            <div id="input-container">
+                <input type="text" id="loc-input" placeholder="Enter city name">
+                <button id="fetch-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
         </div>
 
         <div id="weather-container" class="hidden">
             <article class="weather-output" id="weather-past">
                 <h3 class="loc"></h3>
-                <p class="date"></p>
+                <p class="date-text">Yesterday, <span class="date"></span></p>
+                <img src="" alt="Weather Icon" class="icon">
                 <p class="temp"></p>
-                <p class="icon"></p>
                 <p class="cond"></p>
                 <p class="wind"></p>
                 <p class="precip"></p>
@@ -30,9 +33,9 @@
 
             <article class="weather-output" id="weather-present">
                 <h3 class="loc"></h3>
-                <p class="date"></p>
+                <p class="date-text">Today, <span class="date"></span></p>
+                <img src="" alt="Weather Icon" class="icon">
                 <p class="temp"></p>
-                <p class="icon"></p>
                 <p class="cond"></p>
                 <p class="wind"></p>
                 <p class="precip"></p>
@@ -40,9 +43,9 @@
 
             <article class="weather-output" id="weather-future">
                 <h3 class="loc"></h3>
-                <p class="date"></p>
+                <p class="date-text">Tomorrow, <span class="date"></span></p>
+                <img src="" alt="Weather Icon" class="icon">
                 <p class="temp"></p>
-                <p class="icon"></p>
                 <p class="cond"></p>
                 <p class="wind"></p>
                 <p class="precip"></p>

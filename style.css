@@ -12,66 +12,55 @@ body {
     color: var(--secondary-color);
 }
 
-main {
+/* main, h1, h2, #main-container, #input-container, #weather-container, p, img, h3 {
     border-style: solid;
     border-color: red;
     border-width: 1px;
-}
+} */
 
 h1 {
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
-
     margin: auto 0 0.5rem 0;
 
     font-weight: 800;
-    font-size: 2.75rem;
+    font-size: 3rem;
+    text-transform: uppercase;
 }
 
 h2 {
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
-
     margin: auto 0 1rem 0;
 
-    font-weight: 300;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: 1.25rem;
 }
+
+/* #main-container {
+    padding: 0 3rem;
+} */
 
 #input-container {
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
-
     margin: 1rem 0 2rem;
     
-    width: 100%;
+    width: 50%;
     display:flex;
     gap: 1rem;
+    border-bottom: 0.05rem solid var(--secondary-color);
 
 }
 
-#city-input {
+#loc-input {
     box-sizing: border-box;
-
-    /* border-style: solid;
-    border-color: red;
-    border-width: 1px; */
 
     outline: none;
     border: none;
     background-color: transparent;
-    border-bottom: 0.05rem solid var(--secondary-color);
-    flex: 5;
+    flex: 1;
 
     font-weight: 500;
     font-size: 1.25rem;
     color:var(--secondary-color);
 }
 
-#city-input::placeholder {
+#loc-input::placeholder {
     color: rgba(255, 255, 255, 0.5);
     font-weight: 500;
     font-size: 1.25rem;
@@ -79,26 +68,23 @@ h2 {
 }
 
 #fetch-button {
-    background-color: white;
-    flex: 1;
-
+    color: var(--secondary-color);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    /* flex: 1; */
 }
 
 #fetch-button:hover {
-    background-color: #a0a0a0;
     cursor: pointer;
 }
 
 #weather-container {
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 
-    /* padding: 0 0rem; */
+    gap: 3rem;
 }
 
 .weather-output {
@@ -107,15 +93,61 @@ h2 {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 
-    padding: 0 1.25rem;
-    margin: 0 1rem;
-    width: 25%;
+    padding: 2rem 1.5rem;
+    width: 30%;
 
+    text-align: center;
 
-    
+    box-shadow: -8px 8px 10px rgba(0, 0, 0, 0.25);
+
 }
+
+.weather-output > * {
+    margin: 0;
+}   
 
 .hidden {
     display: none !important;
+}
+
+.loc {
+    font-size: 1.35rem;
+    margin-bottom: 0.25rem;
+}
+
+.date-text {
+    margin-bottom: 1.25rem;
+
+    color: #4c738f;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.icon {
+    margin: 0 auto 0.5rem;
+
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+
+.temp {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.cond {
+    margin-bottom: 1.25rem;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.wind, .precip {
+    margin-bottom: 0.25rem;
+
+    font-size: 1rem;
+    font-weight: 400;
 }
 

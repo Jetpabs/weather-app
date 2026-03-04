@@ -1,5 +1,5 @@
 const button = document.getElementById('fetch-button');
-const cityInput = document.getElementById('city-input');
+const cityInput = document.getElementById('loc-input');
 
 const apiKey = ""
 
@@ -36,30 +36,52 @@ const fetchWeather = async () => {
         }
 
         const data = await res.json();
+
+        // Log entire data for debugging
         console.log(data);
 
+        // Function to update weather section based on day index
         function updateWeatherSection(containerId, dayIndex) {
             const container = document.getElementById(containerId);
             const day = data.days[dayIndex];
 
+            const formattedDate = new Date(day.datetime).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+
+            // Convert Fahrenheit to Celsius and format to 1 decimal place
+            const toCelsius = f => ((f - 32) * 5 / 9).toFixed(1);
+
+            // Input weather data into the container elements
             const mapping = {
                 '.loc': data.resolvedAddress,
-                '.date': day.datetime,
-                '.temp': `Temperature: ${day.temp}°C`,
-                '.icon': `Icon: ${day.icon}`,
-                '.cond': `Conditions: ${day.conditions}`,
+                '.date': formattedDate,
+                '.temp': `${toCelsius(day.temp)}°C`,
+                '.cond': `${day.conditions}`,
                 '.wind': `Wind Speed: ${day.windspeed} km/h`,
                 '.precip': `Precipitation Probability: ${day.precipprob}%`
             };
+
+            // Update the weather icon
+            const iconImg = container.querySelector('.icon');
+            if (iconImg) {
+            iconImg.src = `images/${day.icon}.svg`;
+            iconImg.alt = day.icon;
+            }
 
             Object.entries(mapping).forEach(([selector, value]) => {
                 container.querySelector(selector).textContent = value;
             });
         }
+
+        // Update past, present, and future weather sections
         updateWeatherSection('weather-past', 0);
         updateWeatherSection('weather-present', 1);
         updateWeatherSection('weather-future', 2);
 
+        // Show the weather container
         const weatherContainer = document.getElementById('weather-container');
         weatherContainer.classList.remove('hidden');
 
@@ -69,6 +91,7 @@ const fetchWeather = async () => {
     }
 }
 
+// Add event listeners for button click and Enter key press
 button.addEventListener("click", fetchWeather);
 
 cityInput.addEventListener("keypress", event => {
