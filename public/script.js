@@ -1,8 +1,6 @@
 const button = document.getElementById('fetch-button');
 const cityInput = document.getElementById('loc-input');
 
-const apiKey = ""
-
 // Get current date and calculate past and future dates
 let currentDate = new Date();
 
@@ -28,8 +26,9 @@ futureDate = formatLocalISO(futureDate);
 const fetchWeather = async () => {
     try {
         const loc = cityInput.value.trim();
-        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${loc}/${pastDate}/${futureDate}?key=${apiKey}`;
-        const res = await fetch (apiUrl);
+
+        const serverUrl = `http://localhost:3000/weather?loc=${encodeURIComponent(loc)}&pastDate=${pastDate}&futureDate=${futureDate}`;
+        const res = await fetch(serverUrl);
 
         if (!res.ok) {
             throw new Error("Network response was not ok");
